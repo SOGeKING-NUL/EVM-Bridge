@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-// import {ERC20} from "../lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
 import {IERC20} from "../lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 import {Ownable} from "../lib/openzeppelin-contracts/contracts/access/Ownable.sol"; 
 
@@ -28,4 +27,8 @@ contract BridgedETH is Ownable{
         pendingBalance[msg.sender] -= _amount;
         _tokenAddress.transfer(msg.sender, _amount);
     }
+
+    function burnTokenOnOtherSide(address _from, uint _amount) public{
+        pendingBalance[_from] -= amount;
+    } 
 }

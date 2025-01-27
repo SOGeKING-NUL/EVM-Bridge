@@ -38,7 +38,10 @@ contract BridgedETHTest is Test{
         bridge.withdraw(usdt, 200);
         assertEq(usdt.balanceOf(0x4Ff64D715C377b4e96d533e3dAE2C5c7B00E6D24), 200);
         assertEq(usdt.balanceOf(address(bridge)), 100);
-
     }
+
+
+    function burnTokenOnOtherSide() public{
+        
 
 }
